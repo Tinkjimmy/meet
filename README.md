@@ -1,4 +1,17 @@
 # meet
+description
+
+This app will allow users to access events in their city, filtering by city of interest and will be available 
+offline.
+
+Key Features:
+● Filter events by city.
+● Show/hide event details.
+● Specify number of events.
+● Use the app when offline.
+● Add an app shortcut to the home screen.
+● View a chart showing the number of upcoming events by city.
+
 
 user stories
 Show/Hide Event Details:
@@ -45,6 +58,10 @@ Feature: Event Statistics
     When I select to view the chart for the number of upcoming events by city
     Then I should see a visual representation of the event distribution by city on the chart
     And the chart should accurately reflect the number of upcoming events in each city
+    
+    
+    ![image](https://github.com/Tinkjimmy/meet/assets/109866915/239bb969-50e2-4572-ae12-36aa42b61779)
+
 
 
 
