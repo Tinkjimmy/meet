@@ -12,6 +12,9 @@ Key Features:
 ● Add an app shortcut to the home screen.
 ● View a chart showing the number of upcoming events by city.
 
+Serverless
+This app uses a serverless function deployed on Amazon AWS Lambda to authorize the user to make requests to the Google Calender API to search for upcoming events.
+
 
 user stories
 Show/Hide Event Details:
