@@ -2,7 +2,7 @@
 
 service: auth-server
 
-frameworkVersion: "3"
+
 
 provider:
   name: aws
