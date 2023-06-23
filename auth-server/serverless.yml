@@ -4,7 +4,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
-  region: us-east-1
+  region: eu-central-1
   timeout: 60 # optional, in seconds, default is 6
   environment:
     CLIENT_ID: ${file(config.json):CLIENT_ID}
@@ -30,3 +30,5 @@ functions:
       - http:
           path: api/get-events/{access_token}
           method: get
+
+          
