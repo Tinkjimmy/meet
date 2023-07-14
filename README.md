@@ -19,6 +19,7 @@ This app uses a serverless function deployed on Amazon AWS Lambda to authorize t
 user stories
 Show/Hide Event Details:
 "As a user, I want the ability to show or hide event details so that I can easily view a summarized version of the events without being overwhelmed by excessive information."
+
 Specify Number of Events:
 "As a user, I want to specify the number of events I want to see at a time so that I can customize the displayed content based on my preferences and the amount of information I want to consume."
 
@@ -41,6 +42,13 @@ Feature: Event Display
     Then I should see the specified number of events on the page
     And the remaining events should be available for pagination or scrolling
     
+Feature: Event Details
+  Scenario: Show/Hide Event Details
+    Given I am viewing an event
+    When I click on the "Show Details" button
+    Then I should see the full event details expanded
+    And the "Show Details" button should change to "Hide Details"
+
 Feature: Offline App Usage
   Scenario: Use the App When Offline
     Given I have previously accessed the app and its content
