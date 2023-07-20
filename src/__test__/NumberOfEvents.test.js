@@ -16,7 +16,7 @@ describe("<NumberOfEvents /> component", () => {
     expect(eventsTextBox).toHaveValue("32");
   });
 
-  test("component’s textbox has a value that changes accordingly when a user", async () => {
+  test("component's textbox has a value that changes accordingly when a user type", async () => {
     const handleEventNumberChange = jest.fn();
     render(
       <NumberOfEvents

@@ -1,8 +1,12 @@
 import React from "react";
 
-const NumberOfEvents = ({ eventsNumber, onEventNumberChange }) => {
+const NumberOfEvents = ({
+  eventsNumber,
+  onEventNumberChange,
+  setCurrentNOE,
+}) => {
   const handleInputChanged = (value) => {
-    onEventNumberChange(value);
+    setCurrentNOE(value);
   };
   console.log(eventsNumber);
 
