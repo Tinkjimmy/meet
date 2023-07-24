@@ -1,5 +1,4 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, screen, fireEvent } from "@testing-library/react";
 import NumberOfEvents from "../components/NumberOfEvents";
 
 describe("<NumberOfEvents /> component", () => {
@@ -17,15 +16,12 @@ describe("<NumberOfEvents /> component", () => {
   });
 
   test("component's textbox has a value that changes accordingly when a user type", async () => {
-    const handleEventNumberChange = jest.fn();
-    render(
-      <NumberOfEvents
-        eventsNumber={32}
-        onEventNumberChange={handleEventNumberChange}
-      />
-    );
+    const setCurrentNOE = jest.fn();
+    render(<NumberOfEvents eventsNumber={32} setCurrentNOE={setCurrentNOE} />);
     const eventsTextBox = screen.getByRole("textbox");
-    await userEvent.type(eventsTextBox, "10");
-    expect(handleEventNumberChange).toHaveBeenCalled();
+
+    fireEvent.change(eventsTextBox, { target: { value: "10" } });
+
+    expect(setCurrentNOE).toHaveBeenCalledWith("10");
   });
 });

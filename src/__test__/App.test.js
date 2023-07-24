@@ -1,12 +1,13 @@
-import { render, within, screen, waitFor } from "@testing-library/react";
+import { render, within, waitFor, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import App from "../App.js";
-import EventList from "../EventList";
-import CitySearch from "../CitySearch";
-import { mockData } from "../mock-data";
-import { extractLocations, getEvents } from "../api";
-import NumberOfEvents from "../NumberOfEvents.js";
+import { getEvents } from "../api.js";
+// import EventList from "../EventList";
+// import CitySearch from "../CitySearch";
+// import { mockData } from "../mock-data";
+// import { extractLocations, getEvents } from "../api";
+// import NumberOfEvents from "../NumberOfEvents.js";
 
 describe("<App /> component", () => {
   let AppDOM;
@@ -61,7 +62,7 @@ describe("<App /> integration", () => {
     const AppDOM = AppComponent.container.firstChild;
     const NumberOfEventsDOM = AppDOM.querySelector("#number-of-events");
     const NumberOfEventsInput =
-      within(NumberOfEventsDOM).querySelector("textbox");
+      within(NumberOfEventsDOM).queryByRole("textbox");
     await user.type(NumberOfEventsInput, "{backspace}{backspace}10");
 
     const EventListDOM = AppDOM.querySelector("#event-list");
