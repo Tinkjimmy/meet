@@ -57,15 +57,14 @@ defineFeature(feature, (test) => {
       const user = userEvent.setup();
 
       await waitFor(() => {
-        EventListItems = within(EventListDOM).queryAllByRole("listitem");
+        EventListItems = within(EventListDOM).getAllByRole("listitem");
       });
 
-      detailsButton = within(EventListItems[0]).queryByText("Hide Details");
+      detailsButton = within(EventListItems[0]).queryByText("Show Details");
       await user.click(detailsButton);
     });
 
     then("the details of the selected event are visible", () => {
-      //possibile errore
       const eventDetails = EventListDOM.querySelector(".description");
       expect(eventDetails).toBeInTheDocument();
     });
@@ -89,13 +88,14 @@ defineFeature(feature, (test) => {
       EventListDOM = AppDOM.querySelector("#event-list");
 
       await waitFor(() => {
-        EventListItems = within(EventListDOM).queryAllByRole("event");
+        EventListItems = within(EventListDOM).getAllByRole("listitem");
       });
 
       detailsButton = within(EventListItems[0]).queryByText("Show Details");
       await user.click(detailsButton);
       eventDetails = EventListDOM.querySelector(".description");
       expect(eventDetails).toBeInTheDocument();
+      expect(detailsButton).toHaveTextContent("Hide Details");
     });
 
     when("the user click on the “Hide details“ button", async () => {
