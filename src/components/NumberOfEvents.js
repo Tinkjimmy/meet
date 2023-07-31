@@ -3,8 +3,8 @@ import React from "react";
 const NumberOfEvents = ({ eventsNumber, setCurrentNOE, setErrorAlert }) => {
   const handleInputChanged = (value) => {
     let info;
-    if (isNaN(value)) {
-      info = "This inputbox requires a number";
+    if (isNaN(value) || value <= 0) {
+      info = "This inputbox requires a positive number";
     } else {
       info = "";
       setCurrentNOE(value);
