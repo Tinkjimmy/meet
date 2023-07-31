@@ -17,7 +17,13 @@ describe("<NumberOfEvents /> component", () => {
 
   test("component's textbox has a value that changes accordingly when a user type", async () => {
     const setCurrentNOE = jest.fn();
-    render(<NumberOfEvents eventsNumber={32} setCurrentNOE={setCurrentNOE} />);
+    render(
+      <NumberOfEvents
+        eventsNumber={32}
+        setCurrentNOE={setCurrentNOE}
+        setErrorAlert={() => {}}
+      />
+    );
     const eventsTextBox = screen.getByRole("textbox");
 
     fireEvent.change(eventsTextBox, { target: { value: "10" } });

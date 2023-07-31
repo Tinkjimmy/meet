@@ -1,14 +1,17 @@
 import React from "react";
 
-const NumberOfEvents = ({
-  eventsNumber,
-  onEventNumberChange,
-  setCurrentNOE,
-}) => {
+const NumberOfEvents = ({ eventsNumber, setCurrentNOE, setErrorAlert }) => {
   const handleInputChanged = (value) => {
-    setCurrentNOE(value);
+    let info;
+    if (isNaN(value)) {
+      info = "This inputbox requires a number";
+    } else {
+      info = "";
+      setCurrentNOE(value);
+    }
+
+    setErrorAlert(info);
   };
-  console.log(eventsNumber);
 
   return (
     <div id="number-of-events">
@@ -22,4 +25,5 @@ const NumberOfEvents = ({
     </div>
   );
 };
+
 export default NumberOfEvents;
