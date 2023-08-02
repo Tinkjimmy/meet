@@ -40,11 +40,9 @@ const App = () => {
     <div className="App">
       <div className="alerts-container">
         {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
-      </div>
-      <div className="alerts-container">
+
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
-      </div>
-      <div className="alerts-container">
+
         {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
       </div>
 
