@@ -1,4 +1,4 @@
-// import mockData from "./mock-data";
+import mockData from "./mock-data";
 import NProgress from "nprogress";
 
 /**
@@ -54,10 +54,10 @@ const getToken = async (code) => {
 export const getEvents = async () => {
   // NProgress.star();
 
-  // if (window.location.href.startsWith("http://localhost")) {
-  //   // NProgress.done();
-  //   return mockData;
-  // }
+  if (window.location.href.startsWith("http://localhost")) {
+    // NProgress.done();
+    return mockData;
+  }
 
   if (!navigator.onLine) {
     const events = localStorage.getItem("lastEvents");
