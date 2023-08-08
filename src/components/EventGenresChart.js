@@ -10,8 +10,8 @@ const EventGenresChart = (events) => {
   useEffect(() => {
     setData(getData());
   }, [`${events}`]);
-
-  const getData = (events) => {
+  //check
+  const getData = () => {
     const data = genres.map((genre) => {
       const filteredEvents = events.filter((event) =>
         event.summary.includes(genre)
