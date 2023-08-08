@@ -1,29 +1,29 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { ResponsiveContainer, PieChart, Pie } from "recharts";
 
-const EventGenresChart = (events) => {
+const EventGenresChart = ({ events }) => {
   const [data, setData] = useState([]);
 
   const genres = ["React", "JavaScript", "Node", "jQuery", "Angular"];
 
   useEffect(() => {
-    setData(getData());
-  }, [`${events}`]);
-  //check
-  const getData = () => {
-    const data = genres.map((genre) => {
-      const filteredEvents = events.filter((event) =>
-        event.summary.includes(genre)
-      );
+    const getData = () => {
+      const data = genres.map((genre) => {
+        const filteredEvents = events.filter((event) =>
+          event.summary.includes(genre)
+        );
 
-      return {
-        name: genre,
-        value: filteredEvents.length,
-      };
-    });
-    return data;
-  };
+        return {
+          name: genre,
+          value: filteredEvents.length,
+        };
+      });
+      return data;
+    };
+
+    setData(getData());
+  }, [events, genres]);
+
   const renderCustomizedLabel = ({
     cx,
     cy,
